@@ -60,10 +60,11 @@
 - [Poetry 官方文件](https://python-poetry.org/docs/)
 
 ## 🌐 線上服務
-- **網站開放請聯繫 **zoelin.sg@gmail.com** 申請訪問權限。
 | 項目名稱 | 連結 |
 | --- | --- |
 | Django 部落格系統 | [🔗 進入網站](https://zoe-blog.sunflowx.com/) |
 | Django 電商網站 | [🔗 進入網站](https://zoe-ecommerce.sunflowx.com/) |
 | Django 圖書館系統 | [🔗 進入網站](https://zoe-library.sunflowx.com/) |
 | Django Portfolio | [🔗 進入網站](https://zoe-portfolio.sunflowx.com/) |
+
+- **網站開放請聯繫 **zoelin.sg@gmail.com** 申請訪問權限。
