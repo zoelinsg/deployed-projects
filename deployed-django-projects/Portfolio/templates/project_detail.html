@@ -1,0 +1,44 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/portfolio/templates/project_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}專案詳情{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ project.name }}</h2>
+        <div class="tags">
+            <ul>
+                {% for tag in project.tags.all %}
+                    <li>{{ tag.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% if project.url %}
+            <p><a href="{{ project.url }}" class="btn">專案連結</a></p>
+        {% endif %}
+        {% if project.video %}
+            <video id="project-video" controls>
+                <source src="{{ project.video.url }}" type="video/mp4">
+                您的瀏覽器不支援影片播放。
+            </video>
+            <button id="play-pause-btn" class="btn">播放/暫停</button>
+        {% endif %}
+        <div>{{ project.description|safe }}</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('project-video');
+            var playPauseBtn = document.getElementById('play-pause-btn');
+
+            playPauseBtn.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.textContent = '暫停';
+                } else {
+                    video.pause();
+                    playPauseBtn.textContent = '播放';
+                }
+            });
+        });
+    </script>
+{% endblock %}

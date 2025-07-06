@@ -1,0 +1,29 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/portfolio/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Zoe作品集</a></li>
+                <li><a href="{% url 'resume-detail' %}">履歷</a></li>
+                <li><a href="{% url 'contact' %}">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-layout">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Zoe Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

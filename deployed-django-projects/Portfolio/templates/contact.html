@@ -1,0 +1,15 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/portfolio/templates/contact.html -->
+{% extends 'base.html' %}
+
+{% block title %}聯絡我們{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>聯絡我們</h2>
+        <form method="post" class="contact-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">送出</button>
+        </form>
+    </div>
+{% endblock %}

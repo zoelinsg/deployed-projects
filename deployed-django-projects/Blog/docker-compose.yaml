@@ -1,0 +1,29 @@
+version: '3.8'
+
+x-common-config:
+  # 提取相同的配置部分
+  &common-config
+  restart: unless-stopped
+  networks:
+    - blog
+
+services:
+
+  backend:
+    container_name: blog_django
+    image: zoe-blog/python:1.0.0
+    ports:
+      - "8000:8000"
+    volumes:
+      #- /etc/nginx/html/blog/staticfiles:/opt/web/staticfiles
+      - /etc/nginx/html/blog/static:/opt/web/static/  
+      - /opt/web/blog/db.sqlite3:/opt/web/db.sqlite3
+      - /opt/web/blog/media:/opt/web/media
+    env_file:
+      - .env
+    <<: *common-config
+
+networks:
+  blog:
+    name: blog
+    driver: bridge

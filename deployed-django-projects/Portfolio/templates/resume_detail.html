@@ -1,0 +1,11 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/django-projects/portfolio/templates/resume_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}履歷{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ resume.title }}</h2>
+        <div>{{ resume.content|safe }}</div>
+    </div>
+{% endblock %}

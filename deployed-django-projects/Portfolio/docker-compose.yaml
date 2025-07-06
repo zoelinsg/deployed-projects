@@ -1,0 +1,29 @@
+version: '3.8'
+
+x-common-config:
+  # 提取相同的配置部分
+  &common-config
+  restart: unless-stopped
+  networks:
+    - portfolio
+
+services:
+
+  backend:
+    container_name: portfolio_django
+    image: zoe-portfolio/python:1.0.0
+    ports:
+      - "8300:8000"
+    volumes:
+      #- /etc/nginx/html/portfolio/staticfiles:/opt/web/staticfiles
+      - /etc/nginx/html/portfolio/static:/opt/web/static
+      - /opt/web/portfolio/db.sqlite3:/opt/web/db.sqlite3
+      - /opt/web/portfolio/media:/opt/web/media
+    env_file:
+      - .env
+    <<: *common-config
+
+networks:
+  portfolio:
+    name: portfolio
+    driver: bridge
